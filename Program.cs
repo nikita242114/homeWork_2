@@ -6,14 +6,17 @@
 918 ->1
 */
 
-int number = ReadInt("Введите трехзначное число: ");
-int amount = number.ToString().Length;
-
-if (amount < 3 || amount > 3)
+int Prompt(string msg)
 {
-    Console.WriteLine("Вы ввели не трехзначное число");
+
+System.Console.WriteLine($"{msg}");
+return Convert.ToInt32(Console.ReadLine());
+}
+int number = Prompt("Введите трехзначное число");
+if (number >=100 && number <1000)
+{
+int mid = (number % 100 — number % 10) / 10;
+System.Console.WriteLine($"Вторая цифра числа {number} является {mid}");
 }
 else
-{
-    Console.WriteLine(InCenter(number));
-}
+System.Console.WriteLine("Это число не трехзначное");
